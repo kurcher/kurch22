@@ -1,6 +1,6 @@
 /**
  * Done by:
- * Student Name: Severyn Kotyhoroshko
+ * Student Name: Murai Yurii
  * Student Group: 123
  * Lab 1.4
  */
@@ -10,87 +10,50 @@
 using namespace std;
 
 int main() {
-    // Comment to local scope 1
-    {
-        int num = 10;
-        int* ptr = &num; // ptr now holds the address of num
+    // 1. Опис змінних
+    unsigned int wA;
+    int nB;
+    float fltC;
 
-        cout << "Value of num: " << num << endl;        // Outputs: 10
-        cout << "Address of num: " << ptr << endl;      // Outputs the memory address of num
-        cout << "Value at the address stored in ptr: " << *ptr << endl; // Outputs: 10
+    // 2. Опис вказівників
+    unsigned int* pwA;
+    int* pnB;
+    float* pfltC;
 
-        num++;
-        cout << num << endl;
+    // 3. Опис нетипізованого вказівника
+    void* pV;
 
-        // delete ptr;         // Deallocates the memory
-        ptr = nullptr;         // Good practice to avoid dangling ptrs
-        cout << "Nullified ptr: " << ptr << endl;
-    }
+    // 4. Ініціалізація вказівників
+    pwA = &wA;
+    pnB = &nB;
+    pfltC = &fltC;
 
-    // Comment to local scope 2
-    {
-        cout << "Pointer Arithmetic" << endl;
-        int arr[] = {1, 2, 3, 4, 5};
+    // 5. Ініціалізація змінних через вказівники
+    *pwA = 10;
+    *pnB = -25;
+    *pfltC = 3.14f;
 
-        cout << "sizeof arr = " << sizeof(arr) << endl;
-        int* ptr = arr;         // Points to the first element of the array
+    // 6. Визначення розміру змінних
+    int sizewA = sizeof(wA);
+    int sizenB = sizeof(nB);
+    int sizefltC = sizeof(fltC);
 
-        const int firstEl = arr[0];
+    int sizepwA = sizeof(pwA);
+    int sizepnB = sizeof(pnB);
+    int sizepfltC = sizeof(pfltC);
 
-        cout << arr[0] << endl;   // Outputs: 1
-        cout << ptr << endl;   // Outputs: Address
-        cout << *ptr << endl;   // Outputs: 1
-        ptr++;                  // Moves to the next element
-        cout << *ptr << endl;   // Outputs: 2
+    // 7. Виведення результатів
+    cout << "Розмір змінної wA: " << sizewA << " байт" << endl;
+    cout << "Розмір змінної nB: " << sizenB << " байт" << endl;
+    cout << "Розмір змінної fltC: " << sizefltC << " байт" << endl;
 
-        ptr = nullptr;         // Good practice to avoid dangling ptrs
-        cout << "sizeof arr = " << sizeof(arr) << endl;
-    }
+    cout << "Розмір вказівника pwA: " << sizepwA << " байт" << endl;
+    cout << "Розмір вказівника pnB: " << sizepnB << " байт" << endl;
+    cout << "Розмір вказівника pfltC: " << sizepfltC << " байт" << endl;
 
-    // Comment to local scope 3
-    {
-        cout << "Dynamic Memory Allocation for INT" << endl;
-        int* ptr = new int;    // Allocates memory for a single integer
-        *ptr = 20;             // Sets the value of the allocated memory
-
-        cout << *ptr << endl;  // Outputs: 20
-
-        delete ptr;            // Deallocates the memory
-        ptr = nullptr;         // Good practice to avoid dangling ptrs
-    }
-
-
-    // Comment to local scope 4
-    {
-        cout << "Dynamic Memory Allocation for ARR" << endl;
-        int* arr = new int[5]; // Allocates memory for an array of 5 integers
-
-        cout << "sizeof *arr = " << sizeof(*arr) << endl;
-        cout << "sizeof arr = " << sizeof(arr) << endl;
-
-        cout << arr << endl;
-        for(int i = 0; i < 5; i++) {
-            arr[i] = i + 1;    // Initializes array
-        }
-
-        delete[] arr;          // Deallocates the array memory
-        arr = nullptr;
-        cout << arr << endl;
-        cout << "sizeof *arr = " << sizeof(*arr) << endl;
-        cout << "sizeof arr = " << sizeof(arr) << endl;
-    }
-
-    // Comment to local scope 5
-    {
-        cout << "Pointers to Pointers" << endl;
-        int num = 10;
-        int* ptr = &num;
-        int** ptrToPtr = &ptr;
-
-        cout << **ptrToPtr << endl; // Outputs: 10
-        ptr = nullptr;
-        ptrToPtr = nullptr;
-    }
+    // 8. Ініціалізація нетипізованого вказівника
+    pV = pwA;
+    cout << "Нетипізована вказівна змінна pV вказує на адресу pwA" << endl;
 
     return 0;
 }
