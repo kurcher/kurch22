@@ -1,6 +1,6 @@
 /**
  * Done by:
- * Student Name: Severyn Kotyhoroshko
+ * Student Name: Murai Yurii
  * Student Group: 123
  * Lab 1.5
  */
@@ -12,26 +12,24 @@ using namespace std;
 
 int main() {
     {
-        int a = 10;
-        int b = 20;
-        int c = 30;
-        int d = 40;
+        float a = 7.4;
+        float b = 19.7;
+        int c = 60;
+        int d = 60;
 
-        // <УЛО1> (<УЛО2> (A<ОВ1>B) <БЛО> (<УЛО3> (C<ОВ2>D)))
-        //  empty (  !    (a == b)    ^   (   !   (c != d)))
-        bool res = (!(a == b) ^ (!(c != d)));
+        
+        bool res = (!(a < b) && (!(c == d)));
         cout << "res: " << boolalpha << res << endl;
     }
 
     {
-        int a = 10;
-        int b = 20;
-        int c = 30;
-        int d = 40;
+        int a = 17;
+        int b = 17;
+        float c = 8.3;
+        float d = 54.6;
 
-        // <УЛО1> (<УЛО2> (A<ОВ1>B) <БЛО> (<УЛО3> (C<ОВ2>D)))
-        //  empty (  !    (a == b)    ^   (   !   (c != d)))
-        bool res = (!(a == b) ^ (!(c != d)));
+       
+        bool res = (!(a == b) && (!(c == d)));
         cout << "res: " << boolalpha << res << endl;
     }
 
