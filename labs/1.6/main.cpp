@@ -1,40 +1,41 @@
+// Murai Yurii 
+// 123 Group
+// Lab 1.6
+// doneS
+
 #include <iostream>
-#include <string>
-
-std::string caesarEncrypt(const std::string& text, int shift) {
-    std::string result = "";
-
-    // Loop through each character in the input text
-    for (char c : text) {
-        // Check if the character is uppercase
-        if (isupper(c)) {
-            result += char(int(c + shift - 65) % 26 + 65);
-        }
-        // Check if the character is lowercase
-        else if (islower(c)) {
-            result += char(int(c + shift - 97) % 26 + 97);
-        }
-        // If it's neither, just add the character as is
-        else {
-            result += c;
-        }
-    }
-
-    return result;
-}
+#include <windows.h>
 
 int main() {
-    std::string text;
-    int shift;
+    SetConsoleCP(1251)
+    SetConsoleOutputCP(1251);
+    setlocale(LC_ALL, "RU")
+    // Опис змінних типів int, float, unsigned short і їх ініціалізація згідно з вашим варіантом
+    int a = -6306;               // з таблиці
+    float b = 5.1e-1;            // з таблиці
+    unsigned short c = 126;      // з таблиці
 
-    std::cout << "Enter the text to encrypt: ";
-    std::getline(std::cin, text);
+    // Опис змінних типів double, int, char
+    double d;
+    int e;
+    char f;
 
-    std::cout << "Enter the shift value: ";
-    std::cin >> shift;
+    // Неявне приведення типів
+    d = b;  // Неявне приведення float до double
+    e = c;  // Неявне приведення unsigned short до int
 
-    std::string encryptedText = caesarEncrypt(text, shift);
-    std::cout << "Encrypted Text: " << encryptedText << std::endl;
+    // Явне приведення типів
+    d = static_cast<double>(a);  // явне приведення int до double
+    f = static_cast<char>(c);    //   явне приведення unsigned short до char
+
+    
+    std::cout << "Значення змінних після ініціалізації та приведення типів:" << std::endl;
+    std::cout << "a (int): " << a << std::endl;
+    std::cout << "b (float): " << b << std::endl;
+    std::cout << "c (unsigned short): " << c << std::endl;
+    std::cout << "d (double): " << d << std::endl;
+    std::cout << "e (int): " << e << std::endl;
+    std::cout << "f (char): " << f << std::endl;
 
     return 0;
 }
